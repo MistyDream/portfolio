@@ -60,9 +60,24 @@ export const fr = {
         description:
           'Concevoir du code clair, durable et évolutif. Réduire la dette technique avec du refactoring ciblé et des patterns réfléchis.',
         principles: [
-          { title: 'Architecture claire', description: 'SOLID principles' },
-          { title: 'Symfony 3 -> 5', description: 'Migration & refactoring' },
-          { title: 'Qualité long terme', description: 'Patterns & évolutivité' },
+          {
+            title: 'Architecture claire',
+            description: 'SOLID principles',
+            icon: 'code',
+            tone: 'sky',
+          },
+          {
+            title: 'Symfony 3 -> 5',
+            description: 'Migration & refactoring',
+            icon: 'rocket',
+            tone: 'violet',
+          },
+          {
+            title: 'Qualité long terme',
+            description: 'Patterns & évolutivité',
+            icon: 'shield',
+            tone: 'emerald',
+          },
         ],
         tags: ['DDD', 'Testing', 'Patterns'],
       },
@@ -71,9 +86,9 @@ export const fr = {
         description:
           "Optimiser les temps de réponse, les requêtes et le rendu frontend pour garder une expérience fluide à l'échelle.",
         metrics: [
-          { label: 'Réponse API', value: '-120ms' },
-          { label: 'Optimisation requêtes', value: '-55%' },
-          { label: 'Hit ratio cache', value: '91%' },
+          { label: 'Réponse API', value: '-120ms', tone: 'sky' },
+          { label: 'Optimisation requêtes', value: '-55%', tone: 'emerald' },
+          { label: 'Hit ratio cache', value: '91%', tone: 'violet' },
         ],
         tags: ['PostgreSQL', 'Redis', 'Indexing'],
       },
@@ -84,10 +99,10 @@ export const fr = {
         cycleLabel: 'Cycle de développement produit',
         metric: 'leadership end-to-end',
         steps: [
-          { title: 'Idéation', description: 'Product thinking' },
-          { title: 'Architecture', description: 'Design patterns' },
-          { title: 'Développement', description: 'Fullstack build' },
-          { title: 'Livraison', description: 'Production ready' },
+          { title: 'Idéation', description: 'Product thinking', icon: 'lightbulb' },
+          { title: 'Architecture', description: 'Design patterns', icon: 'code' },
+          { title: 'Développement', description: 'Fullstack build', icon: 'server' },
+          { title: 'Livraison', description: 'Production ready', icon: 'rocket' },
         ],
         strengths: [
           { title: 'Apprentissage rapide', description: 'Nouveaux outils & domaines' },
@@ -104,6 +119,8 @@ export const fr = {
       {
         company: 'Ibou.io',
         logo: '/logos/ibou.png',
+        timelineAlign: 'right',
+        timelineTone: 'accent',
         role: 'Développeur fullstack',
         period: '2026',
         duration: '2 mois',
@@ -114,22 +131,28 @@ export const fr = {
       {
         company: 'Skilleos',
         logo: '/logos/skilleos.png',
+        featured: true,
+        timelineAlign: 'center',
+        timelineTone: 'accent',
         role: 'Développeur fullstack',
         period: '2017 - 2024',
         duration: '7 ans',
         highlights: [
           {
             title: 'Développement produit SaaS',
+            icon: 'monitor',
             description:
               'Construction et maintenance de fonctionnalités prêtes pour la production sur une plateforme de formation en ligne utilisée en environnements réels.',
           },
           {
             title: 'Modernisation framework',
+            icon: 'rocket',
             description:
               'Contribution à une migration Symfony 3 vers 5 et à des améliorations long terme de maintenabilité.',
           },
           {
             title: 'Ownership frontend & backend',
+            icon: 'badge',
             description:
               'Travail sur interfaces, base de données, APIs et évolution produit en collaboration avec design et équipes métier.',
           },
@@ -138,6 +161,8 @@ export const fr = {
       },
       {
         company: 'LeWebPedagogique',
+        timelineAlign: 'left',
+        timelineTone: 'blue',
         role: 'Développeur PHP',
         period: '2016 - 2017',
         duration: '1 an',

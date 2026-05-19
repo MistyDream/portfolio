@@ -7,5 +7,6 @@ Personal portfolio website built with React, Vite, TypeScript, and Tailwind CSS.
 ```bash
 npm install
 npm run dev
+npm run typecheck
 npm run build
 ```
