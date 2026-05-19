@@ -99,13 +99,32 @@ export const fr = {
         cycleLabel: 'Cycle de développement produit',
         metric: 'leadership end-to-end',
         steps: [
-          { title: 'Idéation', description: 'Product thinking', icon: 'lightbulb' },
-          { title: 'Architecture', description: 'Design patterns', icon: 'code' },
-          { title: 'Développement', description: 'Fullstack build', icon: 'server' },
-          { title: 'Livraison', description: 'Production ready', icon: 'rocket' },
+          {
+            title: 'Idéation',
+            description: 'Product thinking',
+            icon: 'lightbulb',
+          },
+          {
+            title: 'Architecture',
+            description: 'Design patterns',
+            icon: 'code',
+          },
+          {
+            title: 'Développement',
+            description: 'Fullstack build',
+            icon: 'server',
+          },
+          {
+            title: 'Livraison',
+            description: 'Production ready',
+            icon: 'rocket',
+          },
         ],
         strengths: [
-          { title: 'Apprentissage rapide', description: 'Nouveaux outils & domaines' },
+          {
+            title: 'Apprentissage rapide',
+            description: 'Nouveaux outils & domaines',
+          },
           { title: 'Collaboration', description: 'Travail cross-fonctionnel' },
           { title: 'Adaptabilité', description: 'Codebases existantes' },
         ],
@@ -114,7 +133,8 @@ export const fr = {
   },
   experience: {
     title: 'Parcours professionnel',
-    subtitle: 'Plus de 8 ans à construire et faire évoluer de vrais produits en production.',
+    subtitle:
+      'Plus de 8 ans à construire et faire évoluer de vrais produits en production.',
     items: [
       {
         company: 'Ibou.io',

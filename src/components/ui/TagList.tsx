@@ -16,4 +16,3 @@ export function TagList({ tags }: TagListProps) {
     </div>
   );
 }
-

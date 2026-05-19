@@ -18,7 +18,11 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-8 text-xs font-semibold text-text-muted md:flex">
           {fr.navigation.links.map((link) => (
-            <a className="transition hover:text-white" href={link.href} key={link.href}>
+            <a
+              className="transition hover:text-white"
+              href={link.href}
+              key={link.href}
+            >
               {link.label}
             </a>
           ))}
@@ -56,4 +60,3 @@ export function SiteHeader() {
     </header>
   );
 }
-

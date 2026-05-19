@@ -5,10 +5,13 @@ type ExpertiseCardProps = {
   children: ReactNode;
 };
 
-export function ExpertiseCard({ className = '', children }: ExpertiseCardProps) {
+export function ExpertiseCard({
+  className = '',
+  children,
+}: ExpertiseCardProps) {
   return (
     <article
-      className={`rounded-xl border border-white/10 bg-[#141b2e] p-7 shadow-[0_22px_70px_rgba(0,0,0,0.18)] ${className}`}
+      className={`rounded-xl border border-white/10 bg-panel p-7 shadow-[0_22px_70px_rgba(0,0,0,0.18)] ${className}`}
     >
       {children}
     </article>
@@ -35,7 +38,9 @@ type CardHeadingProps = {
 export function CardHeading({ title, description }: CardHeadingProps) {
   return (
     <>
-      <h3 className="text-base font-black tracking-normal text-white">{title}</h3>
+      <h3 className="text-base font-black tracking-normal text-white">
+        {title}
+      </h3>
       <p className="mt-4 max-w-xl text-sm font-medium leading-6 text-text-secondary">
         {description}
       </p>

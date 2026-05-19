@@ -76,4 +76,3 @@ function HeroContent() {
     </div>
   );
 }
-

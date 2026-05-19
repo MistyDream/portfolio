@@ -15,11 +15,16 @@ export function HeroVisual() {
       <OrbitRing inset="26%" opacity="border-white/25" />
 
       <div className="relative z-20 flex aspect-square w-[34%] min-w-36 items-center justify-center overflow-hidden rounded-full bg-sky-400/10 p-2 shadow-[0_0_70px_rgba(56,189,248,0.35)]">
-        <img
-          className="h-full w-full rounded-full object-cover object-[center_30%]"
-          src="/moi_cartoon.png"
-          alt={fr.hero.portraitAlt}
-        />
+        <picture className="h-full w-full">
+          <source srcSet="/moi_cartoon.webp" type="image/webp" />
+          <img
+            className="h-full w-full rounded-full object-cover object-[center_30%]"
+            src="/moi_cartoon.png"
+            alt={fr.hero.portraitAlt}
+            decoding="async"
+            fetchPriority="high"
+          />
+        </picture>
       </div>
 
       <SatelliteOrbit
@@ -135,4 +140,3 @@ function Satellite({ tone, children }: SatelliteProps) {
     </div>
   );
 }
-

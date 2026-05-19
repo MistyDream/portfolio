@@ -50,10 +50,7 @@ export function CapabilitiesSection() {
   const { capabilities } = fr;
 
   return (
-    <section
-      id="capabilities"
-      className="relative px-5 py-24 sm:px-8 lg:py-28"
-    >
+    <section id="capabilities" className="relative px-5 py-24 sm:px-8 lg:py-28">
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-black tracking-normal text-white sm:text-4xl">
@@ -112,7 +109,7 @@ function ProductMap() {
   const product = fr.capabilities.cards.product;
 
   return (
-    <div className="mt-8 rounded-md border border-white/10 bg-[#081020] p-5">
+    <div className="mt-8 rounded-md border border-white/10 bg-panel-deep p-5">
       <div className="grid gap-8 sm:grid-cols-[1fr_auto_1fr] sm:items-start">
         <StackColumn
           title={product.frontend}
@@ -163,7 +160,7 @@ function StackColumn({ title, items, dotClassName }: StackColumnProps) {
 
 function ArchitecturePanel() {
   return (
-    <div className="mt-8 rounded-md bg-[#081020] p-4">
+    <div className="mt-8 rounded-md bg-panel-deep p-4">
       <div className="space-y-3">
         {fr.capabilities.cards.architecture.principles.map((principle) => (
           <div className="flex items-center gap-3" key={principle.title}>
@@ -173,7 +170,9 @@ function ArchitecturePanel() {
               {architectureIcons[principle.icon]}
             </div>
             <div>
-              <p className="text-[11px] font-black text-white">{principle.title}</p>
+              <p className="text-[11px] font-black text-white">
+                {principle.title}
+              </p>
               <p className="mt-0.5 text-[10px] font-medium text-text-muted">
                 {principle.description}
               </p>
@@ -187,7 +186,7 @@ function ArchitecturePanel() {
 
 function PerformancePanel() {
   return (
-    <div className="mt-8 rounded-md bg-[#081020] p-4">
+    <div className="mt-8 rounded-md bg-panel-deep p-4">
       <div className="divide-y divide-white/5">
         {fr.capabilities.cards.performance.metrics.map((metric) => (
           <div
@@ -200,7 +199,9 @@ function PerformancePanel() {
               />
               <span className="truncate">{metric.label}</span>
             </span>
-            <span className={`font-black ${metricToneClasses[metric.tone].value}`}>
+            <span
+              className={`font-black ${metricToneClasses[metric.tone].value}`}
+            >
               {metric.value}
             </span>
           </div>
@@ -212,10 +213,12 @@ function PerformancePanel() {
 
 function ProductCycle() {
   return (
-    <div className="mt-8 rounded-md bg-[#081020] p-5">
+    <div className="mt-8 rounded-md bg-panel-deep p-5">
       <div className="mb-7 flex items-center justify-between text-[10px] font-bold uppercase tracking-normal text-text-muted">
         <span>{fr.capabilities.cards.autonomy.cycleLabel}</span>
-        <span className="text-sky-300">{fr.capabilities.cards.autonomy.metric}</span>
+        <span className="text-sky-300">
+          {fr.capabilities.cards.autonomy.metric}
+        </span>
       </div>
 
       <div className="grid gap-6 md:grid-cols-4">
@@ -239,7 +242,9 @@ function ProductCycle() {
         <div className="grid gap-5 md:grid-cols-3">
           {fr.capabilities.cards.autonomy.strengths.map((strength) => (
             <div className="text-center" key={strength.title}>
-              <p className="text-[11px] font-black text-white">{strength.title}</p>
+              <p className="text-[11px] font-black text-white">
+                {strength.title}
+              </p>
               <p className="mt-1 text-[10px] font-medium text-text-muted">
                 {strength.description}
               </p>

@@ -11,6 +11,9 @@ export default {
       colors: {
         background: '#0b1224',
         surface: '#171c31',
+        panel: '#141b2e',
+        'panel-deep': '#081020',
+        'panel-raised': '#161c31',
         border: '#1e293b',
         'text-primary': '#f1f5f9',
         'text-secondary': '#b8c6df',

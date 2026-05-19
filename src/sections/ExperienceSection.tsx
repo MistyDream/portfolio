@@ -104,14 +104,16 @@ type ExperienceCardProps = {
 function ExperienceCard({ item, compact = false }: ExperienceCardProps) {
   return (
     <article
-      className={`rounded-lg border border-white/10 bg-[#141b2e] p-6 shadow-[0_22px_70px_rgba(0,0,0,0.16)] ${compact ? 'max-w-sm' : ''}`}
+      className={`rounded-lg border border-white/10 bg-panel p-6 shadow-[0_22px_70px_rgba(0,0,0,0.16)] ${compact ? 'max-w-sm' : ''}`}
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-start gap-4">
           <ExperienceLogo item={item} />
           <div>
             <h3 className="text-sm font-black text-white">{item.company}</h3>
-            <p className="mt-1 text-xs font-bold text-text-secondary">{item.role}</p>
+            <p className="mt-1 text-xs font-bold text-text-secondary">
+              {item.role}
+            </p>
           </div>
         </div>
         <span className="rounded bg-sky-400/15 px-2 py-1 text-[10px] font-black text-sky-300">
@@ -134,36 +136,44 @@ function FeaturedExperienceCard({ item }: ExperienceCardProps) {
   }
 
   return (
-    <article className="w-full max-w-2xl rounded-xl border border-sky-300/15 bg-[#161c31] p-7 shadow-[0_28px_90px_rgba(0,0,0,0.24)]">
+    <article className="w-full max-w-2xl rounded-xl border border-sky-300/15 bg-panel-raised p-7 shadow-[0_28px_90px_rgba(0,0,0,0.24)]">
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-start gap-4">
           <ExperienceLogo item={item} featured />
           <div className="flex flex-wrap items-center gap-2">
             <div>
               <div className="flex flex-wrap items-center gap-2">
-                <h3 className="text-base font-black text-white">{item.company}</h3>
+                <h3 className="text-base font-black text-white">
+                  {item.company}
+                </h3>
                 {'duration' in item ? (
                   <span className="rounded bg-sky-400/15 px-2 py-1 text-[10px] font-black text-sky-300">
                     {item.duration}
                   </span>
                 ) : null}
               </div>
-              <p className="mt-2 text-xs font-bold text-text-secondary">{item.role}</p>
+              <p className="mt-2 text-xs font-bold text-text-secondary">
+                {item.role}
+              </p>
             </div>
           </div>
         </div>
-        <span className="text-[10px] font-bold text-text-muted">{item.period}</span>
+        <span className="text-[10px] font-bold text-text-muted">
+          {item.period}
+        </span>
       </div>
 
       <div className="mt-7 space-y-5">
         {item.highlights.map((highlight) => (
-          <div className="rounded-md bg-[#081020] p-5" key={highlight.title}>
+          <div className="rounded-md bg-panel-deep p-5" key={highlight.title}>
             <div className="flex gap-4">
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-sky-400/10 text-sky-300">
                 {highlightIcons[highlight.icon]}
               </div>
               <div>
-                <h4 className="text-xs font-black text-white">{highlight.title}</h4>
+                <h4 className="text-xs font-black text-white">
+                  {highlight.title}
+                </h4>
                 <p className="mt-2 text-[11px] font-medium leading-5 text-text-secondary">
                   {highlight.description}
                 </p>
@@ -191,7 +201,9 @@ function ExperienceLogo({ item, featured = false }: ExperienceLogoProps) {
     : featured
       ? 'h-12 w-12 rounded-lg p-2'
       : 'h-10 w-10 rounded-lg p-1.5';
-  const backgroundClass = logo ? 'border-white/10 bg-white' : 'border-white/10 bg-[#081020]';
+  const backgroundClass = logo
+    ? 'border-white/10 bg-white'
+    : 'border-white/10 bg-panel-deep';
 
   return (
     <div
@@ -204,7 +216,11 @@ function ExperienceLogo({ item, featured = false }: ExperienceLogoProps) {
           alt={`Logo ${item.company}`}
         />
       ) : (
-        <Building2 className="text-sky-300" size={featured ? 22 : 18} aria-hidden="true" />
+        <Building2
+          className="text-sky-300"
+          size={featured ? 22 : 18}
+          aria-hidden="true"
+        />
       )}
     </div>
   );
