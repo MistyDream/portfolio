@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #0b1224;
+  color: #f1f5f9;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #38bdf830;
+}
+
+.orbit-track {
+  border-radius: 9999px;
+  animation: orbit-spin var(--orbit-duration) linear infinite;
+  transform-origin: center;
+}
+
+.orbit-satellite {
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+
+.orbit-satellite-content {
+  animation: orbit-counter-spin var(--orbit-duration) linear infinite;
+  transform-origin: center;
+}
+
+@keyframes orbit-spin {
+  from {
+    transform: rotate(var(--orbit-start));
+  }
+
+  to {
+    transform: rotate(calc(var(--orbit-start) + 360deg));
+  }
+}
+
+@keyframes orbit-counter-spin {
+  from {
+    transform: rotate(var(--orbit-counter-start));
+  }
+
+  to {
+    transform: rotate(var(--orbit-counter-end));
+  }
+}
