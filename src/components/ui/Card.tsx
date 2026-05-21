@@ -11,7 +11,7 @@ export function ExpertiseCard({
 }: ExpertiseCardProps) {
   return (
     <article
-      className={`rounded-xl border border-white/10 bg-panel p-7 shadow-[0_22px_70px_rgba(0,0,0,0.18)] ${className}`}
+      className={`rounded-xl border border-white/10 bg-panel p-5 shadow-[0_22px_70px_rgba(0,0,0,0.18)] sm:p-7 ${className}`}
     >
       {children}
     </article>

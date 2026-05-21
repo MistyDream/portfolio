@@ -50,7 +50,10 @@ export function CapabilitiesSection() {
   const { capabilities } = fr;
 
   return (
-    <section id="capabilities" className="relative px-5 py-24 sm:px-8 lg:py-28">
+    <section
+      id="capabilities"
+      className="relative px-4 py-16 sm:px-8 sm:py-20 lg:py-28"
+    >
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-black tracking-normal text-white sm:text-4xl">
@@ -61,7 +64,7 @@ export function CapabilitiesSection() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 lg:grid-cols-3">
           <ExpertiseCard className="lg:col-span-2">
             <CardIcon icon={<BadgeCheck size={15} />} />
             <CardHeading
@@ -109,8 +112,8 @@ function ProductMap() {
   const product = fr.capabilities.cards.product;
 
   return (
-    <div className="mt-8 rounded-md border border-white/10 bg-panel-deep p-5">
-      <div className="grid gap-8 sm:grid-cols-[1fr_auto_1fr] sm:items-start">
+    <div className="mt-8 rounded-md border border-white/10 bg-panel-deep p-4 sm:p-5">
+      <div className="grid gap-6 sm:grid-cols-[1fr_auto_1fr] sm:items-start sm:gap-8">
         <StackColumn
           title={product.frontend}
           items={product.stacks}
@@ -125,7 +128,7 @@ function ProductMap() {
           dotClassName="bg-violet-400"
         />
       </div>
-      <div className="mt-8 flex items-center justify-between text-[11px] text-text-muted">
+      <div className="mt-8 flex flex-wrap items-center justify-between gap-2 text-[11px] text-text-muted">
         <span>{product.label}</span>
         <span className="text-sky-300">{product.metric}</span>
       </div>
@@ -213,8 +216,8 @@ function PerformancePanel() {
 
 function ProductCycle() {
   return (
-    <div className="mt-8 rounded-md bg-panel-deep p-5">
-      <div className="mb-7 flex items-center justify-between text-[10px] font-bold uppercase tracking-normal text-text-muted">
+    <div className="mt-8 rounded-md bg-panel-deep p-4 sm:p-5">
+      <div className="mb-7 flex flex-wrap items-center justify-between gap-2 text-[10px] font-bold uppercase tracking-normal text-text-muted">
         <span>{fr.capabilities.cards.autonomy.cycleLabel}</span>
         <span className="text-sky-300">
           {fr.capabilities.cards.autonomy.metric}

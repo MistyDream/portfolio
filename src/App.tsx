@@ -5,7 +5,7 @@ import { HeroSection } from './sections/HeroSection';
 
 export default function App() {
   return (
-    <main className="min-h-screen overflow-hidden bg-background text-text-primary">
+    <main className="min-h-screen overflow-x-hidden bg-background text-text-primary">
       <SiteHeader />
       <HeroSection />
       <CapabilitiesSection />

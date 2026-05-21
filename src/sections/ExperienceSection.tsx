@@ -13,7 +13,10 @@ export function ExperienceSection() {
   const { experience } = fr;
 
   return (
-    <section id="experience" className="relative px-5 py-24 sm:px-8 lg:py-28">
+    <section
+      id="experience"
+      className="relative px-4 py-16 sm:px-8 sm:py-20 lg:py-28"
+    >
       <div className="mx-auto max-w-5xl">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-black tracking-normal text-white sm:text-4xl">
@@ -24,7 +27,7 @@ export function ExperienceSection() {
           </p>
         </div>
 
-        <div className="relative mt-14">
+        <div className="relative mt-10 sm:mt-14">
           <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-white/10 lg:block" />
 
           {experience.items.map((item) => (
@@ -60,7 +63,9 @@ function TimelineRow({ align, children }: TimelineRowProps) {
         : 'lg:grid-cols-[1fr_3rem_1fr] lg:[&>article]:col-span-3 lg:[&>article]:mx-auto';
 
   return (
-    <div className={`relative grid gap-5 py-8 lg:items-center ${position}`}>
+    <div
+      className={`relative grid gap-5 py-5 sm:py-8 lg:items-center ${position}`}
+    >
       {children}
     </div>
   );
@@ -104,9 +109,9 @@ type ExperienceCardProps = {
 function ExperienceCard({ item, compact = false }: ExperienceCardProps) {
   return (
     <article
-      className={`rounded-lg border border-white/10 bg-panel p-6 shadow-[0_22px_70px_rgba(0,0,0,0.16)] ${compact ? 'max-w-sm' : ''}`}
+      className={`rounded-lg border border-white/10 bg-panel p-5 shadow-[0_22px_70px_rgba(0,0,0,0.16)] sm:p-6 ${compact ? 'max-w-sm' : ''}`}
     >
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="flex items-start gap-4">
           <ExperienceLogo item={item} />
           <div>
@@ -136,8 +141,8 @@ function FeaturedExperienceCard({ item }: ExperienceCardProps) {
   }
 
   return (
-    <article className="w-full max-w-2xl rounded-xl border border-sky-300/15 bg-panel-raised p-7 shadow-[0_28px_90px_rgba(0,0,0,0.24)]">
-      <div className="flex items-start justify-between gap-4">
+    <article className="w-full max-w-2xl rounded-xl border border-sky-300/15 bg-panel-raised p-5 shadow-[0_28px_90px_rgba(0,0,0,0.24)] sm:p-7">
+      <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="flex items-start gap-4">
           <ExperienceLogo item={item} featured />
           <div className="flex flex-wrap items-center gap-2">

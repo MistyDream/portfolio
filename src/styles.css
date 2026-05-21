@@ -23,6 +23,7 @@ body {
   background: #0b1224;
   color: #f1f5f9;
   font-synthesis: none;
+  overflow-x: hidden;
   text-rendering: optimizeLegibility;
 }
 

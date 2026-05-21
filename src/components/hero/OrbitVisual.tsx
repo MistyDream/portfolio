@@ -4,7 +4,7 @@ import { fr } from '../../lang/fr';
 
 export function HeroVisual() {
   return (
-    <div className="relative mx-auto flex aspect-square w-full max-w-[440px] items-center justify-center sm:max-w-[520px]">
+    <div className="relative mx-auto flex aspect-square w-full max-w-[280px] items-center justify-center min-[380px]:max-w-[320px] sm:max-w-[420px] lg:max-w-[520px]">
       <div
         className="absolute inset-[13%] rounded-full bg-sky-400/10 blur-2xl"
         aria-hidden="true"
@@ -14,7 +14,7 @@ export function HeroVisual() {
       <OrbitRing inset="14%" opacity="border-white/30" />
       <OrbitRing inset="26%" opacity="border-white/25" />
 
-      <div className="relative z-20 flex aspect-square w-[34%] min-w-36 items-center justify-center overflow-hidden rounded-full bg-sky-400/10 p-2 shadow-[0_0_70px_rgba(56,189,248,0.35)]">
+      <div className="relative z-20 flex aspect-square w-[34%] min-w-24 items-center justify-center overflow-hidden rounded-full bg-sky-400/10 p-1.5 shadow-[0_0_70px_rgba(56,189,248,0.35)] sm:min-w-36 sm:p-2">
         <img
           className="block h-full w-full rounded-full object-cover object-[center_30%]"
           src="/moi_cartoon.png"
@@ -131,7 +131,7 @@ function Satellite({ tone, children }: SatelliteProps) {
 
   return (
     <div
-      className={`flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur ${toneClass}`}
+      className={`flex h-8 w-8 items-center justify-center rounded-full border backdrop-blur sm:h-10 sm:w-10 ${toneClass}`}
     >
       {children}
     </div>
