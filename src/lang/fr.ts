@@ -1,12 +1,15 @@
 export const fr = {
   brand: {
-    name: 'DevPortfolio',
+    name: 'Maxime Madelaine',
     homeLabel: 'Accueil',
   },
   navigation: {
     githubLabel: 'Github',
     linkedinLabel: 'Linkedin',
+    menuLabel: 'Ouvrir le menu',
+    closeMenuLabel: 'Fermer le menu',
     cvCta: 'CV',
+    cvLabel: 'Ouvrir le CV',
     cvUrl: '/cv-maxime-madelaine.pdf',
     githubUrl: 'https://github.com/MistyDream',
     linkedinUrl: 'https://www.linkedin.com/in/maxime-madelaine-ba4657105',
@@ -16,7 +19,7 @@ export const fr = {
         href: '#hero',
       },
       {
-        label: 'Compétences',
+        label: 'Expertise',
         href: '#capabilities',
       },
       {
@@ -30,11 +33,11 @@ export const fr = {
     title: {
       firstName: 'Maxime',
       lastName: 'Madelaine',
-      role: 'Développeur_',
+      role: 'Développeur fullstack',
     },
     description:
-      "Développeur full-stack autonome, je monte vite en compétence et je m'adapte facilement. À l'aise en équipe comme en solo, j'aime construire des produits utiles avec une approche simple et efficace.",
-    primaryCta: 'Télécharger mon CV',
+      "Développeur fullstack orienté produit, j'interviens sur des applications web utiles avec une attention forte à la maintenabilité, à la performance et aux usages réels.",
+    primaryCta: 'Voir mon CV',
     githubCta: 'Github',
     secondaryCta: 'Linkedin',
     portraitAlt: 'Maxime Madelaine',
@@ -48,17 +51,22 @@ export const fr = {
         title: 'Développement produit fullstack',
         description:
           "Construire des expériences complètes, de l'API backend jusqu'aux interfaces frontend polies. Faire le lien entre l'implémentation technique et les usages réels.",
+        shortDescription:
+          'Construire des fonctionnalités complètes, du backend aux interfaces, avec une approche orientée produit.',
         frontend: 'Frontend',
         backend: 'Backend',
-        stacks: ['Vue.js + React', 'TypeScript', 'Responsive UI'],
-        backendStacks: ['Symfony + PHP', 'REST APIs', 'PostgreSQL'],
-        label: 'leadership end-to-end',
-        metric: '2 ans en production',
+        stacks: ['Vue.js + React', 'TypeScript', 'Interfaces responsives'],
+        backendStacks: ['Symfony + PHP', 'APIs REST', 'PostgreSQL'],
+        label: 'expérience produit',
+        metric: 'architecture, interfaces, APIs',
+        tags: ['Symfony', 'Vue.js', 'TypeScript'],
       },
       architecture: {
         title: 'Architecture & maintenabilité',
         description:
           'Concevoir du code clair, durable et évolutif. Réduire la dette technique avec du refactoring ciblé et des patterns réfléchis.',
+        shortDescription:
+          'Structurer du code clair, durable et évolutif, sans ajouter de complexité inutile.',
         principles: [
           {
             title: 'Architecture claire',
@@ -79,44 +87,48 @@ export const fr = {
             tone: 'emerald',
           },
         ],
-        tags: ['DDD', 'Testing', 'Patterns'],
+        tags: ['Refactoring', 'Symfony', 'Patterns'],
       },
       performance: {
         title: 'Performance & scalabilité',
         description:
           "Optimiser les temps de réponse, les requêtes et le rendu frontend pour garder une expérience fluide à l'échelle.",
-        metrics: [
-          { label: 'Réponse API', value: '-120ms', tone: 'sky' },
-          { label: 'Optimisation requêtes', value: '-55%', tone: 'emerald' },
-          { label: 'Hit ratio cache', value: '91%', tone: 'violet' },
+        shortDescription:
+          'Optimiser les APIs, les requêtes et les bases de données pour garder une expérience fluide.',
+        concepts: [
+          { label: 'Requêtes lisibles', tone: 'sky' },
+          { label: 'Modèles de données', tone: 'emerald' },
+          { label: 'Parcours rapides', tone: 'violet' },
         ],
-        tags: ['PostgreSQL', 'Redis', 'Indexing'],
+        tags: ['PostgreSQL', 'MySQL', 'Indexation'],
       },
       autonomy: {
-        title: 'Vision produit & ownership',
+        title: 'Vision produit & responsabilité',
         description:
-          "Équilibrer excellence technique et valeur métier. Apprendre vite, s'adapter aux équipes existantes et prendre ownership des fonctionnalités du concept à la livraison.",
+          "Équilibrer excellence technique et valeur métier. S'adapter aux équipes existantes et porter les fonctionnalités du concept à la livraison.",
+        shortDescription:
+          "Comprendre le besoin, collaborer avec l'équipe et porter la fonctionnalité jusqu'à la livraison.",
         cycleLabel: 'Cycle de développement produit',
-        metric: 'leadership end-to-end',
+        metric: 'responsabilité de bout en bout',
         steps: [
           {
             title: 'Idéation',
-            description: 'Product thinking',
+            description: 'Vision produit',
             icon: 'lightbulb',
           },
           {
             title: 'Architecture',
-            description: 'Design patterns',
+            description: 'Patterns',
             icon: 'code',
           },
           {
             title: 'Développement',
-            description: 'Fullstack build',
+            description: 'Développement fullstack',
             icon: 'server',
           },
           {
             title: 'Livraison',
-            description: 'Production ready',
+            description: 'Prêt pour production',
             icon: 'rocket',
           },
         ],
@@ -128,6 +140,7 @@ export const fr = {
           { title: 'Collaboration', description: 'Travail cross-fonctionnel' },
           { title: 'Adaptabilité', description: 'Codebases existantes' },
         ],
+        tags: ['Produit', 'Collaboration', 'Livraison'],
       },
     },
   },
@@ -142,11 +155,11 @@ export const fr = {
         timelineAlign: 'right',
         timelineTone: 'accent',
         role: 'Développeur fullstack',
-        period: '2026',
+        period: 'Mars 2026 — Avril 2026',
         duration: '2 mois',
         description:
           "Mission récente autour d'une application moderne, avec contribution fullstack, adaptation rapide à l'existant et travail sur l'expérience produit.",
-        tags: ['Rust', 'Fullstack', 'Product Engineering'],
+        tags: ['Rust', 'Fullstack', 'Ingénierie produit'],
       },
       {
         company: 'Skilleos',
@@ -157,6 +170,13 @@ export const fr = {
         role: 'Développeur fullstack',
         period: '2017 - 2024',
         duration: '7 ans',
+        description:
+          'Construction et maintenance de fonctionnalités produit pour une plateforme SaaS de formation, avec un focus sur la maintenabilité, le frontend, le backend et les usages réels.',
+        keyPoints: [
+          'Produit SaaS',
+          'Migration Symfony 3 → 5',
+          'Responsabilité frontend & backend',
+        ],
         highlights: [
           {
             title: 'Développement produit SaaS',
@@ -171,10 +191,10 @@ export const fr = {
               'Contribution à une migration Symfony 3 vers 5 et à des améliorations long terme de maintenabilité.',
           },
           {
-            title: 'Ownership frontend & backend',
+            title: 'Responsabilité frontend & backend',
             icon: 'badge',
             description:
-              'Travail sur interfaces, base de données, APIs et évolution produit en collaboration avec design et équipes métier.',
+              'Travail sur interfaces, base de données, APIs et évolution produit en collaboration avec les équipes design et métier.',
           },
         ],
         tags: ['Symfony', 'Vue.js', 'Nuxt', 'MySQL', 'TypeScript'],
@@ -188,7 +208,7 @@ export const fr = {
         duration: '1 an',
         description:
           'Développement de fonctionnalités de plateforme éducative et d’outils de traitement de données pour écoles, incluant intégration projet et maintenance.',
-        tags: ['PHP', 'MySQL', 'Educational Platform'],
+        tags: ['PHP', 'MySQL', 'Plateforme éducative'],
       },
     ],
   },

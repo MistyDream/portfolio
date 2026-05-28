@@ -4,7 +4,7 @@ import { fr } from '../../lang/fr';
 
 export function HeroVisual() {
   return (
-    <div className="relative mx-auto flex aspect-square w-full max-w-[280px] items-center justify-center min-[380px]:max-w-[320px] sm:max-w-[420px] lg:max-w-[520px]">
+    <div className="relative mx-auto flex aspect-square w-full max-w-[280px] items-center justify-center min-[380px]:max-w-[320px] sm:max-w-[420px] md:max-w-[360px] lg:max-w-[520px]">
       <div
         className="absolute inset-[13%] rounded-full bg-sky-400/10 blur-2xl"
         aria-hidden="true"

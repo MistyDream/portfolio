@@ -7,7 +7,7 @@ export function TagList({ tags }: TagListProps) {
     <div className="mt-5 flex flex-wrap gap-2">
       {tags.map((tag) => (
         <span
-          className="rounded bg-slate-700/60 px-2.5 py-1 text-[11px] font-bold text-text-muted"
+          className="rounded bg-slate-700/60 px-2.5 py-1 text-[11px] font-semibold text-text-muted"
           key={tag}
         >
           {tag}

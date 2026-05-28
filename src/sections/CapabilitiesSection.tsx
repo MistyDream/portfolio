@@ -24,18 +24,15 @@ const toneTextClasses = {
   emerald: 'text-emerald-300',
 };
 
-const metricToneClasses = {
+const conceptToneClasses = {
   sky: {
     dot: 'bg-sky-400',
-    value: 'text-sky-300',
   },
   emerald: {
     dot: 'bg-emerald-400',
-    value: 'text-emerald-300',
   },
   violet: {
     dot: 'bg-violet-400',
-    value: 'text-violet-300',
   },
 };
 
@@ -56,7 +53,7 @@ export function CapabilitiesSection() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-black tracking-normal text-white sm:text-4xl">
+          <h2 className="text-3xl font-extrabold leading-tight tracking-normal text-white sm:text-4xl">
             {capabilities.title}
           </h2>
           <p className="mt-4 text-sm font-medium leading-6 text-sky-200/75">
@@ -64,47 +61,90 @@ export function CapabilitiesSection() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:gap-6 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:mt-14 lg:grid-cols-3 lg:gap-6">
           <ExpertiseCard className="lg:col-span-2">
             <CardIcon icon={<BadgeCheck size={15} />} />
-            <CardHeading
+            <ResponsiveCardHeading
               title={capabilities.cards.product.title}
               description={capabilities.cards.product.description}
+              shortDescription={capabilities.cards.product.shortDescription}
             />
-            <ProductMap />
+            <div className="lg:hidden">
+              <TagList tags={capabilities.cards.product.tags} />
+            </div>
+            <div className="hidden lg:block">
+              <ProductMap />
+            </div>
           </ExpertiseCard>
 
           <ExpertiseCard>
             <CardIcon icon={<Sparkles size={15} />} />
-            <CardHeading
+            <ResponsiveCardHeading
               title={capabilities.cards.architecture.title}
               description={capabilities.cards.architecture.description}
+              shortDescription={
+                capabilities.cards.architecture.shortDescription
+              }
             />
-            <ArchitecturePanel />
+            <div className="hidden lg:block">
+              <ArchitecturePanel />
+            </div>
             <TagList tags={capabilities.cards.architecture.tags} />
           </ExpertiseCard>
 
           <ExpertiseCard>
             <CardIcon icon={<Zap size={15} />} />
-            <CardHeading
+            <ResponsiveCardHeading
               title={capabilities.cards.performance.title}
               description={capabilities.cards.performance.description}
+              shortDescription={capabilities.cards.performance.shortDescription}
             />
-            <PerformancePanel />
+            <div className="hidden lg:block">
+              <PerformancePanel />
+            </div>
             <TagList tags={capabilities.cards.performance.tags} />
           </ExpertiseCard>
 
           <ExpertiseCard className="lg:col-span-2">
             <CardIcon icon={<Lightbulb size={15} />} />
-            <CardHeading
+            <ResponsiveCardHeading
               title={capabilities.cards.autonomy.title}
               description={capabilities.cards.autonomy.description}
+              shortDescription={capabilities.cards.autonomy.shortDescription}
             />
-            <ProductCycle />
+            <div className="lg:hidden">
+              <TagList tags={capabilities.cards.autonomy.tags} />
+            </div>
+            <div className="hidden lg:block">
+              <ProductCycle />
+            </div>
           </ExpertiseCard>
         </div>
       </div>
     </section>
+  );
+}
+
+type ResponsiveCardHeadingProps = {
+  title: string;
+  description: string;
+  shortDescription: string;
+};
+
+function ResponsiveCardHeading({
+  title,
+  description,
+  shortDescription,
+}: ResponsiveCardHeadingProps) {
+  return (
+    <>
+      <div className="lg:hidden">
+        <CardHeading title={title} description={shortDescription} />
+      </div>
+      <div className="hidden lg:block">
+        <CardHeading title={title} description={description} />
+      </div>
+    </>
   );
 }
 
@@ -145,7 +185,7 @@ type StackColumnProps = {
 function StackColumn({ title, items, dotClassName }: StackColumnProps) {
   return (
     <div>
-      <div className="mb-4 flex items-center gap-2 text-[11px] font-bold text-white">
+      <div className="mb-4 flex items-center gap-2 text-[11px] font-semibold text-white">
         <span className={`h-2 w-2 rounded-sm ${dotClassName}`} />
         {title}
       </div>
@@ -173,7 +213,7 @@ function ArchitecturePanel() {
               {architectureIcons[principle.icon]}
             </div>
             <div>
-              <p className="text-[11px] font-black text-white">
+              <p className="text-[11px] font-bold leading-4 text-white">
                 {principle.title}
               </p>
               <p className="mt-0.5 text-[10px] font-medium text-text-muted">
@@ -191,21 +231,16 @@ function PerformancePanel() {
   return (
     <div className="mt-8 rounded-md bg-panel-deep p-4">
       <div className="divide-y divide-white/5">
-        {fr.capabilities.cards.performance.metrics.map((metric) => (
+        {fr.capabilities.cards.performance.concepts.map((concept) => (
           <div
-            className="grid grid-cols-[1fr_auto] items-center gap-3 py-3 text-[11px] first:pt-0 last:pb-0"
-            key={metric.label}
+            className="flex items-center gap-3 py-3 text-[11px] first:pt-0 last:pb-0"
+            key={concept.label}
           >
             <span className="flex min-w-0 items-center gap-2 font-semibold text-text-secondary">
               <span
-                className={`h-1.5 w-1.5 shrink-0 rounded-full ${metricToneClasses[metric.tone].dot}`}
+                className={`h-1.5 w-1.5 shrink-0 rounded-full ${conceptToneClasses[concept.tone].dot}`}
               />
-              <span className="truncate">{metric.label}</span>
-            </span>
-            <span
-              className={`font-black ${metricToneClasses[metric.tone].value}`}
-            >
-              {metric.value}
+              <span className="truncate">{concept.label}</span>
             </span>
           </div>
         ))}
@@ -233,7 +268,9 @@ function ProductCycle() {
             <div className="relative mx-auto flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-sky-400/10 text-sky-300">
               {productCycleIcons[step.icon]}
             </div>
-            <p className="mt-3 text-xs font-black text-white">{step.title}</p>
+            <p className="mt-3 text-xs font-bold leading-4 text-white">
+              {step.title}
+            </p>
             <p className="mt-1 text-[10px] font-medium text-text-muted">
               {step.description}
             </p>
@@ -245,7 +282,7 @@ function ProductCycle() {
         <div className="grid gap-5 md:grid-cols-3">
           {fr.capabilities.cards.autonomy.strengths.map((strength) => (
             <div className="text-center" key={strength.title}>
-              <p className="text-[11px] font-black text-white">
+              <p className="text-[11px] font-bold leading-4 text-white">
                 {strength.title}
               </p>
               <p className="mt-1 text-[10px] font-medium text-text-muted">

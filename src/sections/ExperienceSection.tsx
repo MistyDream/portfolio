@@ -19,7 +19,7 @@ export function ExperienceSection() {
     >
       <div className="mx-auto max-w-5xl">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-black tracking-normal text-white sm:text-4xl">
+          <h2 className="text-3xl font-extrabold leading-tight tracking-normal text-white sm:text-4xl">
             {experience.title}
           </h2>
           <p className="mt-4 text-sm font-medium leading-6 text-sky-200/70">
@@ -27,7 +27,11 @@ export function ExperienceSection() {
           </p>
         </div>
 
-        <div className="relative mt-10 sm:mt-14">
+        <div className="mt-8 lg:hidden">
+          <ResponsiveExperienceList items={experience.items} />
+        </div>
+
+        <div className="relative mt-10 hidden sm:mt-14 lg:block">
           <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-white/10 lg:block" />
 
           {experience.items.map((item) => (
@@ -46,6 +50,42 @@ export function ExperienceSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+type ExperienceItems = typeof fr.experience.items;
+
+type ResponsiveExperienceListProps = {
+  items: ExperienceItems;
+};
+
+function ResponsiveExperienceList({ items }: ResponsiveExperienceListProps) {
+  const recentItem = items[0];
+  const featuredItem = items.find(
+    (item) => 'featured' in item && item.featured,
+  );
+  const earlyItem = items[items.length - 1];
+
+  return (
+    <div className="mx-auto max-w-3xl">
+      <div className="space-y-4 md:hidden">
+        <ResponsiveExperienceCard item={recentItem} />
+        {featuredItem ? (
+          <ResponsiveExperienceCard item={featuredItem} featured />
+        ) : null}
+        <ResponsiveExperienceCard item={earlyItem} />
+      </div>
+
+      <div className="hidden md:block">
+        {featuredItem ? (
+          <ResponsiveExperienceCard item={featuredItem} featured />
+        ) : null}
+        <div className="mt-4 grid gap-4 md:grid-cols-2 md:items-stretch">
+          <ResponsiveExperienceCard item={recentItem} />
+          <ResponsiveExperienceCard item={earlyItem} />
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -115,13 +155,15 @@ function ExperienceCard({ item, compact = false }: ExperienceCardProps) {
         <div className="flex items-start gap-4">
           <ExperienceLogo item={item} />
           <div>
-            <h3 className="text-sm font-black text-white">{item.company}</h3>
-            <p className="mt-1 text-xs font-bold text-text-secondary">
+            <h3 className="text-sm font-bold leading-5 text-white">
+              {item.company}
+            </h3>
+            <p className="mt-1 text-xs font-semibold text-text-secondary">
               {item.role}
             </p>
           </div>
         </div>
-        <span className="rounded bg-sky-400/15 px-2 py-1 text-[10px] font-black text-sky-300">
+        <span className="rounded bg-sky-400/15 px-2 py-1 text-[10px] font-bold text-sky-300">
           {item.duration}
         </span>
       </div>
@@ -148,16 +190,16 @@ function FeaturedExperienceCard({ item }: ExperienceCardProps) {
           <div className="flex flex-wrap items-center gap-2">
             <div>
               <div className="flex flex-wrap items-center gap-2">
-                <h3 className="text-base font-black text-white">
+                <h3 className="text-base font-bold leading-6 text-white">
                   {item.company}
                 </h3>
                 {'duration' in item ? (
-                  <span className="rounded bg-sky-400/15 px-2 py-1 text-[10px] font-black text-sky-300">
+                  <span className="rounded bg-sky-400/15 px-2 py-1 text-[10px] font-bold text-sky-300">
                     {item.duration}
                   </span>
                 ) : null}
               </div>
-              <p className="mt-2 text-xs font-bold text-text-secondary">
+              <p className="mt-2 text-xs font-semibold text-text-secondary">
                 {item.role}
               </p>
             </div>
@@ -176,7 +218,7 @@ function FeaturedExperienceCard({ item }: ExperienceCardProps) {
                 {highlightIcons[highlight.icon]}
               </div>
               <div>
-                <h4 className="text-xs font-black text-white">
+                <h4 className="text-xs font-bold leading-4 text-white">
                   {highlight.title}
                 </h4>
                 <p className="mt-2 text-[11px] font-medium leading-5 text-text-secondary">
@@ -187,6 +229,81 @@ function FeaturedExperienceCard({ item }: ExperienceCardProps) {
           </div>
         ))}
       </div>
+
+      <TagList tags={item.tags} />
+    </article>
+  );
+}
+
+type ResponsiveExperienceCardProps = {
+  item: ExperienceItem;
+  featured?: boolean;
+};
+
+function ResponsiveExperienceCard({
+  item,
+  featured = false,
+}: ResponsiveExperienceCardProps) {
+  const hasPeriod = 'period' in item;
+  const description = 'description' in item ? item.description : undefined;
+  const keyPoints = 'keyPoints' in item ? item.keyPoints : undefined;
+
+  return (
+    <article
+      className={`rounded-lg border bg-panel shadow-[0_22px_70px_rgba(0,0,0,0.16)] ${
+        featured
+          ? 'border-sky-300/15 bg-panel-raised p-5 md:p-6'
+          : 'border-white/10 p-4 md:p-5'
+      }`}
+    >
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <div className="flex min-w-0 items-start gap-3">
+          <ExperienceLogo item={item} featured={featured} />
+          <div className="min-w-0">
+            <h3
+              className={`font-bold leading-5 text-white ${
+                featured ? 'text-base' : 'text-sm'
+              }`}
+            >
+              {item.company}
+            </h3>
+            <p className="mt-1 text-xs font-semibold text-text-secondary">
+              {item.role}
+            </p>
+            {featured && hasPeriod ? (
+              <p className="mt-1 text-[11px] font-bold text-text-muted">
+                {item.period}
+              </p>
+            ) : null}
+          </div>
+        </div>
+        <span className="rounded bg-sky-400/15 px-2 py-1 text-[10px] font-bold text-sky-300">
+          {item.duration}
+        </span>
+      </div>
+
+      {description ? (
+        <p
+          className={`mt-4 font-medium text-text-secondary ${
+            featured ? 'text-sm leading-6' : 'text-xs leading-5'
+          }`}
+        >
+          {description}
+        </p>
+      ) : null}
+
+      {keyPoints ? (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {keyPoints.map((point) => (
+            <span
+              className="rounded-md border border-sky-300/15 bg-sky-400/10 px-2.5 py-1 text-[11px] font-semibold text-sky-200"
+              key={point}
+            >
+              {point}
+            </span>
+          ))}
+        </div>
+      ) : null}
 
       <TagList tags={item.tags} />
     </article>

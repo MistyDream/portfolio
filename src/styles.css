@@ -22,6 +22,7 @@ body {
   margin: 0;
   background: #0b1224;
   color: #f1f5f9;
+  -webkit-font-smoothing: antialiased;
   font-synthesis: none;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
